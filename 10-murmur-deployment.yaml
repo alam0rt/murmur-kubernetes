@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v
 kind: Deployment
 metadata:
   name: murmur-deployment
@@ -14,38 +14,38 @@ spec:
         app: murmur
     spec:
       containers:
-      - image: samlockart/murmur:1.3.4
+      - image: samlockart/murmur:.3.4
         imagePullPolicy: Always
         name: murmur-container
         stdin: true 
         tty: true 
         ports:
         # gRPC
-        - containerPort: 50051
+        - containerPort: 5005
         # UDP/TCP murmur
         - containerPort: 64738
         readinessProbe:
           tcpSocket:
             port: 64738
           initialDelaySeconds: 5
-          periodSeconds: 10
+          periodSeconds: 0
         livenessProbe:
           tcpSocket:
             port: 64738
           initialDelaySeconds: 300
-          periodSeconds: 10
+          periodSeconds: 0
         volumeMounts:
-        - mountPath: /home/murmur/.murmur
+        - mountPath: /murmur
           name: murmur-folder
-        - mountPath: /home/murmur/.murmur/ssl
+        - mountPath: /murmur/ssl
           name: murmur-ssl
-        - mountPath: /home/murmur/.murmur/db
+        - mountPath: /murmur/db
           name: murmur-db
-        - mountPath: /home/murmur/.murmur/murmur.ini
+        - mountPath: /murmur/murmur.ini
           name: murmur-config
           subPath: murmur.ini
         securityContext:
-          runAsUser: 911
+          runAsUser: 9
           readOnlyRootFilesystem: true
           runAsNonRoot: true
       volumes:
