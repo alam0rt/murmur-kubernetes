@@ -20,10 +20,9 @@ COPY --chown=1337:1337 --from=setup /murmur /murmur
 
 WORKDIR /murmur
 
-COPY --chown=1337:1337 --from=setup /tmp/murmur-static_x86-${MURMUR_VERSION}/murmur.x86 murmur
-COPY --chown=1337:1337 --from=setup /tmp/murmur-static_x86-${MURMUR_VERSION}/murmur.ini murmur.ini
+COPY --chown=1337:1337 --from=setup /tmp/murmur-static_x86-${MURMUR_VERSION}/murmur.x86 /bin/murmur
 
 EXPOSE 64738/tcp
 EXPOSE 64738/udp
 
-ENTRYPOINT [ "/murmur/murmur", "-fg"]
+ENTRYPOINT [ "/bin/murmur", "-fg"]
