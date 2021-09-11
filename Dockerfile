@@ -8,20 +8,20 @@ ADD https://github.com/mumble-voip/mumble/releases/download/${MURMUR_VERSION}/mu
 
 RUN tar -xvf murmur-static_x86-${MURMUR_VERSION}.tar.bz2
 
-RUN mkdir /murmur && chown nobody:nobody /murmur
+RUN mkdir /murmur && chown 1337:1337 /murmur
 
 FROM scratch
 ARG MURMUR_VERSION
 
 COPY --from=setup /etc/passwd /etc/group /etc/
-USER nobody
+USER 1337
 
-COPY --chown=nobody:nobody --from=setup /murmur /murmur
+COPY --chown=1337:1337 --from=setup /murmur /murmur
 
 WORKDIR /murmur
 
-COPY --chown=nobody:nobody --from=setup /tmp/murmur-static_x86-${MURMUR_VERSION}/murmur.x86 murmur
-COPY --chown=nobody:nobody --from=setup /tmp/murmur-static_x86-${MURMUR_VERSION}/murmur.ini murmur.ini
+COPY --chown=1337:1337 --from=setup /tmp/murmur-static_x86-${MURMUR_VERSION}/murmur.x86 murmur
+COPY --chown=1337:1337 --from=setup /tmp/murmur-static_x86-${MURMUR_VERSION}/murmur.ini murmur.ini
 
 EXPOSE 64738/tcp
 EXPOSE 64738/udp
