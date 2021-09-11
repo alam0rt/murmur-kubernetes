@@ -51,6 +51,7 @@ spec:
           subPath: murmur.ini
         securityContext:
           runAsUser: 1337
+          runAsGroup: 1337
           readOnlyRootFilesystem: true
           runAsNonRoot: true
       volumes:
