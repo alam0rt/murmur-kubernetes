@@ -38,7 +38,7 @@ spec:
         - mountPath: /murmur
           name: murmur-folder
         - mountPath: /murmur/ssl
-          name: murmur-ssl
+          name: murmur-tls
         - mountPath: /murmur/db
           name: murmur-db
         - mountPath: /murmur/murmur.ini
@@ -51,9 +51,9 @@ spec:
       volumes:
       - name: murmur-folder
         emptyDir: {}
-      - name: murmur-ssl
+      - name: murmur-tls
         secret:
-          secretName: murmur-ssl
+          secretName: murmur-tls
       - name: murmur-db
         persistentVolumeClaim:
           claimName: murmur-db
