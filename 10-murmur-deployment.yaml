@@ -24,6 +24,10 @@ spec:
         name: murmur-container
         stdin: true 
         tty: true 
+        args:
+          - "-fg"
+          - "-ini"
+          - "/murmur/murmur.ini"
         ports:
         # gRPC
         - containerPort: 5005
