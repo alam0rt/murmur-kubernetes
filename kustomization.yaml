@@ -6,6 +6,7 @@ resources:
 - 10-murmur-deployment.yaml
 - 15-murmur-configmap.yaml
 - 20-murmur-svc.yaml
+- 30-murmur-tls.yaml
 
 namespace: mumble
 
