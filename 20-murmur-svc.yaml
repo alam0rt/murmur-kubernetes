@@ -5,7 +5,7 @@ metadata:
   labels:
     app: murmur
 spec:
-  type: NodePort
+  type: LoadBalancer
   externalTrafficPolicy: Local
   ports:
     - name: murmur-udp
@@ -21,7 +21,7 @@ metadata:
   labels:
     app: murmur
 spec:
-  type: NodePort
+  type: LoadBalancer
   externalTrafficPolicy: Local
   ports:
     - name: murmur-tcp
