@@ -30,7 +30,7 @@ spec:
           - "/murmur/murmur.ini"
         ports:
         # gRPC
-        - containerPort: 5005
+        - containerPort: 50051
         # UDP/TCP murmur
         - containerPort: 64738
         readinessProbe:
