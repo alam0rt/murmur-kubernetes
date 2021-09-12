@@ -6,7 +6,7 @@ metadata:
     app: murmur
 spec:
   type: NodePort
-  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: Local
   ports:
     - name: murmur-udp
       port: 64738
@@ -22,7 +22,7 @@ metadata:
     app: murmur
 spec:
   type: NodePort
-  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: Local
   ports:
     - name: murmur-tcp
       port: 64738
@@ -38,7 +38,7 @@ metadata:
     app: murmur
 spec:
   type: NodePort
-  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: Local
   ports:
     - name: murmur-grpc-tcp
       port: 50051
