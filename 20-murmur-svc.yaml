@@ -10,6 +10,7 @@ spec:
   ports:
     - name: murmur-udp
       port: 64738
+      nodePort: 64738
       protocol: UDP
   selector:
     app: murmur
@@ -26,6 +27,7 @@ spec:
   ports:
     - name: murmur-tcp
       port: 64738
+      nodePort: 64738
       protocol: TCP
   selector:
     app: murmur
@@ -42,6 +44,7 @@ spec:
   ports:
     - name: murmur-grpc-tcp
       port: 50051
+      nodePort: 50051
       protocol: TCP
   selector:
     app: murmur
